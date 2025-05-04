@@ -99,6 +99,10 @@ async def health_check():
         "model_ready": True
     }
 
+@app.get("/healthz")
+async def healthz():
+    return {"status": "ok"}
+
 @app.post("/generate")
 async def generate_content(request: MarketingRequest):
     """Generate general content based on the provided prompt"""
