@@ -25,7 +25,6 @@ jobs:
         run: |
           mkdir -p dist
           cp templates/index.html dist/index.html
-          cp -r static/* dist/
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
