@@ -24,7 +24,7 @@ jobs:
       - name: Build frontend
         run: |
           mkdir -p dist
-          cp -r templates/* dist/
+          cp templates/index.html dist/index.html
           cp -r static/* dist/
           
       - name: Deploy to GitHub Pages
