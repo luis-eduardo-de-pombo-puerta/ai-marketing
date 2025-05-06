@@ -11,6 +11,7 @@ from typing import Optional
 import logging
 import re
 import random
+from fastapi.middleware.cors import CORSMiddleware
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -85,6 +86,14 @@ class MarketingRequest(BaseModel):
 class AdInput(BaseModel):
     product_description: str
     add_theme: str
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can restrict this to your frontend URL for more security
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
